@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+  --primary-color: #E50914; /* Netflix red */
+  --secondary-color: #141414; /* Dark grey */
+  --text-color: #ffffff; /* White */
+  --highlight-color-green: lightgreen; /* Custom colors */
+  --highlight-color-orange: orange;
+  --highlight-color-red: red;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--secondary-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  color: var(--text-color); /* Set default text color */
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--primary-color);
+}
+
+.search {
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.search::placeholder {
+  color: #7378c5;
+}
+
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* Adding gap between items */
+}
+
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Increased border radius for a softer look */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transition for hover effect */
+}
+
+.movie:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05); /* Slightly enlarges the movie card on hover */
+}
+
+.movie img {
+  width: 100%;
+  display: block; /* Ensures the image doesn't add extra space below */
+}
+
+.movie-info {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem; /* Increased gap for better spacing */
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.5px;
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for readability */
+}
+
+.movie-info h3 {
+  margin: 0; /* Removed top margin */
+}
+
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px; /* Increased border radius */
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: var(--highlight-color-green);
+}
+
+.movie-info span.orange {
+  color: var(--highlight-color-orange);
+}
+
+.movie-info span.red {
+  color: var(--highlight-color-red);
+}
+
+.overview {
+  background-color: #000; /* Set background color to black for contrast */
+  padding: 1rem; /* Adjusted padding for consistency */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(100%); /* Corrected transform for initial hidden state */
+  overflow-y: auto;
+  transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
